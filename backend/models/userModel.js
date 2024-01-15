@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
+
 const userSchema = mongoose.Schema(
     {
         name: {
@@ -22,16 +24,30 @@ const userSchema = mongoose.Schema(
                 10,
                 'Password must be at least 10 characters in length.',
             ],
-            maxLength: [
-                30,
-                'Password must not be longer than 30 characters in length.',
-            ],
+            // maxLength: [
+            //     30,
+            //     'Password must not be longer than 30 characters in length.',
+            // ],
         },
     },
     {
         timestamps: true,
     }
 )
+
+// Encrypt the password before saving it to the database
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+        return next()
+    }
+
+    // Hash the password
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(this.password, salt)
+    this.password = hashedPassword
+    next()
+})
+
 const User = mongoose.model('User', userSchema)
 
 module.exports = User
