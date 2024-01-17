@@ -2,6 +2,8 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel.js')
 const jwt = require('jsonwebtoken')
 
+// This function protects the routes so that only registered users have access to the protected routes.
+
 const protect = asyncHandler(async (req, res, next) => {
     try {
         const token = req.cookies.token
