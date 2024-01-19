@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 const userRoute = require('./routes/userRoute')
+const productRoute = require('./routes/productRoute')
 const errorHandler = require('./middleware/errorMiddleware.js')
 const cookieParser = require('cookie-parser')
 
@@ -17,6 +18,7 @@ app.use(cors())
 
 // Routes Middleware
 app.use('/api/users', userRoute)
+app.use('/api/products', productRoute)
 
 // Routes
 app.get('/', (req, res) => {
