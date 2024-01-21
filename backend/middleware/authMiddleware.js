@@ -24,7 +24,7 @@ const protect = asyncHandler(async (req, res, next) => {
         next()
     } catch (error) {
         res.status(401)
-        throw new Error('Not autorized, please login.')
+        throw new Error('Not authorized, please login.')
     }
 })
 
