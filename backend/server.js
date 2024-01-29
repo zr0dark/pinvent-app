@@ -17,6 +17,10 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
+// {
+//     origin: ['http://localhost:3000', 'https://maxout.vercel.app'],
+//     credentials: true,
+// }
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 // Routes Middleware
@@ -33,7 +37,7 @@ app.get('/', (req, res) => {
 app.use(errorHandler)
 
 // Connect to the database and start the server
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT || 5000
 mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {

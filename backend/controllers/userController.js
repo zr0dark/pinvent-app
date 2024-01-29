@@ -19,10 +19,10 @@ const registerUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Please fill in all required fields.')
     }
-    if (password.length < 10) {
+    if (password.length < 8) {
         res.status(400)
         throw new Error(
-            'Your password must be at least 10 characters in length.'
+            'Your password must be at least 8 characters in length.'
         )
     }
 

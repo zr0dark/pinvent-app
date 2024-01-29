@@ -11,7 +11,7 @@ import axios from 'axios'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = false // You changed from true to false because of cors error.
 
 function App() {
     return (
