@@ -16,7 +16,8 @@ export const registerUser = async (userData) => {
         const response = await axios.post(
             `${BACKEND_URL}/api/users/register`,
             userData,
-            { withCredentials: false } // You changed from true to false because of cors error.
+            { withCredentials: true }
+            // { withCredentials: false } // You changed from true to false because of cors error.
         )
         if (response.statusText === 'OK') {
             toast.success('User registered successfully.')
@@ -93,13 +94,28 @@ export const forgotPassword = async (userData) => {
 }
 
 // Reset password
-
 export const resetPassword = async (userData, resetToken) => {
     try {
         const response = await axios.put(
             `${BACKEND_URL}/api/users/resetpassword/${resetToken}`,
             userData
         )
+        return response.data
+    } catch (error) {
+        const message =
+            (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+            error.message ||
+            error.toString()
+        toast.error(message)
+    }
+}
+
+// Get login status
+export const getLoginStatus = async () => {
+    try {
+        const response = await axios.get(`${BACKEND_URL}/api/users/loggedin`)
         return response.data
     } catch (error) {
         const message =

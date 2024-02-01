@@ -1,6 +1,8 @@
 import React from 'react'
+import useRedirectLoggedOutUser from '../../customHook/useRedirectLoggedOutUser'
 
-const dashboard = () => {
+const Dashboard = () => {
+    useRedirectLoggedOutUser('/login')
     return (
         <div>
             <h1>MaxOut Dashboard</h1>
@@ -8,4 +10,4 @@ const dashboard = () => {
     )
 }
 
-export default dashboard
+export default Dashboard

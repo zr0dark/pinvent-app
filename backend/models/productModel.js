@@ -7,7 +7,7 @@ const productSchema = mongoose.Schema(
             required: true,
             ref: 'User',
         },
-        location: {
+        productLocation: {
             // Where is the product located? 4747, 5119, Warehouse?
             type: String,
             required: [false, 'Which location?'],

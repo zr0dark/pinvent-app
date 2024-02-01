@@ -24,10 +24,6 @@ const userSchema = mongoose.Schema(
                 10,
                 'Password must be at least 10 characters in length.',
             ],
-            // maxLength: [
-            //     30,
-            //     'Password must not be longer than 30 characters in length.',
-            // ],
         },
     },
     {

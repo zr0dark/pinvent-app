@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary').v2
 
 const createProduct = asyncHandler(async (req, res) => {
     const {
-        location,
+        productLocation,
         name,
         vendor,
         skuBunzl,
@@ -20,21 +20,21 @@ const createProduct = asyncHandler(async (req, res) => {
     } = req.body
 
     // Validation
-    if (
-        !location ||
-        !name ||
-        !vendor ||
-        !category ||
-        !bundleQuantity ||
-        !maxOutQuantity ||
-        !quantityInStock ||
-        !quantityNeeded ||
-        !cost ||
-        !description
-    ) {
-        res.status(400)
-        throw new Error('Please fill in all required fields. Thanks!')
-    }
+    // if (
+    //     !productLocation ||
+    //     !name ||
+    //     !vendor ||
+    //     !category ||
+    //     !bundleQuantity ||
+    //     !maxOutQuantity ||
+    //     !quantityInStock ||
+    //     !quantityNeeded ||
+    //     !cost ||
+    //     !description
+    // ) {
+    //     res.status(400)
+    //     throw new Error('Please fill in all required fields. Thanks!')
+    // }
 
     // Manage image upload.
     let fileData = {}
@@ -62,7 +62,7 @@ const createProduct = asyncHandler(async (req, res) => {
     // Create product
     const product = await Product.create({
         user: req.user.id,
-        location,
+        productLocation,
         name,
         vendor,
         skuBunzl,
@@ -164,7 +164,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     const updatedProduct = await Product.findByIdAndUpdate(
         { _id: id },
         {
-            location,
+            productLocation,
             name,
             vendor,
             skuBunzl,

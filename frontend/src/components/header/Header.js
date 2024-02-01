@@ -16,10 +16,10 @@ const Header = () => {
     return (
         <div className='--pad header'>
             <div className='--flex-between'>
-                <h1>
+                <h2>
                     <span className='--fw-thin'>Welcome, </span>
                     <span className='--color-danger'>{name}</span>
-                </h1>
+                </h2>
                 <button onClick={logout} className='--btn --btn-danger'>
                     Logout
                 </button>
