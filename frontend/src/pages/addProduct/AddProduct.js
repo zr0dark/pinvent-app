@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { UseSelector, useDispatch, useSelector } from 'react-redux'
-import ProductForm from '../../components/productForm/ProductForm'
+import ProductForm from '../../components/product/productForm/ProductForm'
+
 import {
     createProduct,
     selectIsLoading,

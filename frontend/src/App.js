@@ -17,7 +17,6 @@ import { SET_LOGIN } from './redux/features/auth/authSlice'
 import AddProduct from './pages/addProduct/AddProduct'
 
 axios.defaults.withCredentials = true
-// axios.defaults.withCredentials = false // You changed from true to false because of cors error.
 
 function App() {
     const dispatch = useDispatch()

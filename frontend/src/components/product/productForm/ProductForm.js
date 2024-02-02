@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-import Card from '../card/Card'
-
+import Card from '../../card/Card'
 import './ProductForm.scss'
 
 const ProductForm = ({
     product,
+    productLocation,
     productImage,
     imagePreview,
     description,
@@ -38,6 +38,7 @@ const ProductForm = ({
                             <p>No image set for this poduct.</p>
                         )}
                     </Card>
+
                     <label>Product Location:</label>
                     <p className='smallText'>
                         <em>Locations: 4747, 5119, Warehouse</em>
