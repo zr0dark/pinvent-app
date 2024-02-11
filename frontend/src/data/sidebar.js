@@ -27,11 +27,6 @@ const menu = [
             },
         ],
     },
-    {
-        title: 'Report Bug',
-        icon: <FaCommentAlt />,
-        path: '/contact-us',
-    },
 ]
 
 export default menu
